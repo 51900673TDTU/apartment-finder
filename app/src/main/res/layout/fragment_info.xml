@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <LinearLayout
+        android:id="@+id/ll_content"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center_vertical|start"
+        android:orientation="vertical">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="26sp"
+            android:text="Information"
+            android:layout_marginStart="20sp"
+            android:fontFamily="@font/op_bold"
+            android:layout_marginBottom="40dp"
+            android:textColor="@color/black"/>
+        <EditText
+            android:id="@+id/edt_username"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="20dp"
+            android:paddingHorizontal="12dp"
+            android:paddingVertical="14dp"
+            android:background="@drawable/bg_border_10"
+            android:hint="Full name (individual or group)"/>
+        <EditText
+            android:id="@+id/edt_email"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_marginHorizontal="20dp"
+            android:paddingHorizontal="12dp"
+            android:paddingVertical="14dp"
+            android:background="@drawable/bg_border_10"
+            android:hint="Address"/>
+        <EditText
+            android:id="@+id/edt_password"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="20dp"
+            android:paddingHorizontal="12dp"
+            android:layout_marginTop="10dp"
+            android:paddingVertical="14dp"
+            android:background="@drawable/bg_border_10"
+            android:hint="Phone number"/>
+
+       <TextView
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:text="Join us:"
+           android:layout_gravity="left"
+           android:layout_marginStart="28sp"
+           android:layout_marginTop="10dp"
+           android:textSize="16sp"
+           android:textColor="@color/black"/>
+
+        <RadioGroup
+            android:id="@+id/rg"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="left"
+            android:layout_marginStart="28sp"
+            android:layout_marginTop="10dp"
+            android:orientation="vertical">
+            <RadioButton
+                android:id="@+id/rent"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:checked="true"
+                android:text="For rent"/>
+
+            <RadioButton
+                android:id="@+id/lease"
+                android:layout_marginTop="10dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="For lease"/>
+        </RadioGroup>
+
+
+        <TextView
+            android:id="@+id/tv_create"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Create new account"
+            android:textColor="@color/white"
+            android:background="@drawable/bg_next"
+            android:layout_margin="20dp"
+            android:gravity="center"
+            android:paddingVertical="14dp"
+            android:textSize="20sp"/>
+
+
+    </LinearLayout>
+</RelativeLayout>

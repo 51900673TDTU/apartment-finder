@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#F6F6F6"
+    tools:context=".LoginActivity">
+
+    <RelativeLayout
+        android:id="@+id/rl_header"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="15dp"
+        android:layout_marginTop="40dp"
+        android:layout_alignParentTop="true">
+        <ImageView
+            android:id="@+id/app_logo"
+            android:layout_width="28dp"
+            android:layout_height="28dp"
+            android:src="@drawable/app_logo"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="20sp"
+            android:text="@string/app_name"
+            android:textColor="@color/colorPrimary"
+            android:layout_toEndOf="@id/app_logo"
+            android:layout_marginStart="10dp"
+            android:layout_centerVertical="true"/>
+    </RelativeLayout>
+
+    <LinearLayout
+        android:id="@+id/ll_content"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/rl_header"
+        android:gravity="center"
+        android:layout_marginBottom="60dp"
+        android:orientation="vertical">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="26sp"
+            android:text="Sign in"
+            android:fontFamily="@font/op_bold"
+            android:layout_marginBottom="40dp"
+            android:textColor="@color/black"/>
+
+        <EditText
+            android:id="@+id/edt_email"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="20dp"
+            android:paddingHorizontal="12dp"
+            android:paddingVertical="18dp"
+            android:background="@drawable/bg_border_10"
+            android:hint="Email"/>
+        <EditText
+            android:id="@+id/edt_password"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="20dp"
+            android:paddingHorizontal="12dp"
+            android:layout_marginTop="10dp"
+            android:paddingVertical="18dp"
+            android:background="@drawable/bg_border_10"
+            android:hint="Password"/>
+        <TextView
+            android:id="@+id/tv_forgot_pass"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Forgot password?"
+            android:layout_gravity="start"
+            android:layout_marginStart="28dp"
+            android:layout_marginTop="20dp"
+            android:textSize="16sp"
+            android:textColor="@color/colorPrimary"/>
+        <TextView
+            android:id="@+id/tv_sign_in"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Sign in"
+            android:textColor="@color/white"
+            android:background="@drawable/bg_next"
+            android:layout_margin="20dp"
+            android:gravity="center"
+            android:paddingVertical="10dp"
+            android:textSize="24sp"/>
+        <TextView
+            android:id="@+id/tv_register"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Create new account"
+            android:textColor="@color/colorPrimary"
+            android:background="@drawable/bg_next"
+            android:backgroundTint="@color/white"
+            android:layout_marginHorizontal="20dp"
+            android:gravity="center"
+            android:paddingVertical="14dp"
+            android:textSize="18sp"/>
+
+
+    </LinearLayout>
+
+</RelativeLayout>

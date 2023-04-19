@@ -1,12 +1,11 @@
 package com.application.housefinder.appartment
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentPagerAdapter
-import androidx.viewpager2.adapter.FragmentStateAdapter
 import com.application.housefinder.appartment.databinding.ActivityIntroBinding
 import com.application.housefinder.appartment.fragment.IntroFragment
 
@@ -24,7 +23,7 @@ class IntroActivity : AppCompatActivity() {
             if (binding.viewpager.currentItem < 2) {
                 binding.viewpager.currentItem += 1
             } else {
-                startActivity(Intent(this@IntroActivity,MainActivity::class.java))
+                startActivity(Intent(this@IntroActivity,WelcomeActivity::class.java))
                 finish()
             }
         }

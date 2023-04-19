@@ -1,3 +1,5 @@
 <resources>
-    <string name="app_name">Appartment Finder</string>
+    <string name="app_name">Apartment Finder</string>
+    <string name="create_an_account"><u>Create an account</u></string>
+    <string name="or_sign_in_if_you_already_have_an_account">or <u><b><font color='#2196F3'>Login</font></b></u> if you already have an account</string>
 </resources>

@@ -11,13 +11,20 @@
         android:orientation="horizontal"
         app:layout_constraintGuide_percent="0.8"/>
 
-    <ImageView
-        android:id="@+id/img_intro"
+    <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:scaleType="centerCrop"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toTopOf="@id/gl_1"/>
+        android:layout_margin="20dp"
+        app:cardCornerRadius="10dp"
+        app:layout_constraintBottom_toTopOf="@id/gl_1">
+        <ImageView
+            android:id="@+id/img_intro"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scaleType="centerCrop" />
+    </androidx.cardview.widget.CardView>
+
 
     <TextView
         android:id="@+id/intro_title"
@@ -27,7 +34,7 @@
         app:layout_constraintTop_toBottomOf="@id/gl_1"
         android:text="Intro title"
         android:textStyle="bold"
-        android:textSize="20sp"
+        android:textSize="22sp"
         android:layout_margin="10dp"
         android:textColor="@color/black"/>
 
@@ -38,7 +45,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/intro_title"
         android:text="Intro content almd athasn dtghhsix thasi x atha"
-        android:textSize="16sp"
+        android:textSize="18sp"
         android:layout_margin="10dp"
         android:textColor="#4F646F"/>
 
