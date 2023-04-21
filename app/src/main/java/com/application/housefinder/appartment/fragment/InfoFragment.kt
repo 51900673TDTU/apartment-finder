@@ -7,7 +7,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.application.housefinder.appartment.databinding.FragmentInfoBinding
 
-class FragmentInfo : Fragment() {
+class InfoFragment : Fragment() {
     lateinit var binding : FragmentInfoBinding
     override fun onCreateView(
         inflater: LayoutInflater,

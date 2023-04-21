@@ -2,33 +2,38 @@ package com.application.housefinder.appartment
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.ViewParent
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentPagerAdapter
-import com.application.housefinder.appartment.databinding.ActivityRegisterBinding
+import androidx.viewpager.widget.ViewPager
+import com.application.housefinder.appartment.databinding.ActivityMainBinding
 import com.application.housefinder.appartment.fragment.AccountFragment
+import com.application.housefinder.appartment.fragment.FeedFragment
 import com.application.housefinder.appartment.fragment.InfoFragment
 
-class RegisterActivity : AppCompatActivity() {
-    lateinit var binding : ActivityRegisterBinding
+class MainActivity : AppCompatActivity() {
+    lateinit var binding: ActivityMainBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = ActivityRegisterBinding.inflate(layoutInflater)
+        binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
-        binding.vp.adapter = VpAdapter(supportFragmentManager)
-        binding.vp.currentItem = 0
+
+        binding.viewPager.adapter = VpAdapter(supportFragmentManager)
+        binding.bottomBar.setOnItemSelectedListener {
+            binding.viewPager.currentItem = it
+        }
     }
 
     class VpAdapter(fragmentManager: FragmentManager) : FragmentPagerAdapter(fragmentManager) {
         override fun getCount(): Int {
-            return 2
+            return 3
         }
 
         override fun getItem(position: Int): Fragment {
-            if (position == 0) {
-                return AccountFragment()
-            }
-            return InfoFragment()
+
+            return FeedFragment()
+
         }
 
     }

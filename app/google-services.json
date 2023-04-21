@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "985392042118",
+    "project_id": "appartment-finder-a1907",
+    "storage_bucket": "appartment-finder-a1907.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:985392042118:android:86992433e90b73a4464107",
+        "android_client_info": {
+          "package_name": "com.application.housefinder.appartment"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "985392042118-iplmtvqup61m5he1i8r34jk37agdlqtv.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.application.housefinder.appartment",
+            "certificate_hash": "9248e3155a74187dfdefa52760ed54ab6381d270"
+          }
+        },
+        {
+          "client_id": "985392042118-4n6lmla40gms1ahsma1llbte2nqvojou.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD9171B0QXlw6k1IVFRbDD0NgbVtFKHZ0Y"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "985392042118-4n6lmla40gms1ahsma1llbte2nqvojou.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
