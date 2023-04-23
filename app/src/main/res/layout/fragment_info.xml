@@ -18,7 +18,7 @@
             android:layout_marginBottom="40dp"
             android:textColor="@color/black"/>
         <EditText
-            android:id="@+id/edt_username"
+            android:id="@+id/edt_fullname"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="20dp"
@@ -27,7 +27,7 @@
             android:background="@drawable/bg_border_10"
             android:hint="Full name (individual or group)"/>
         <EditText
-            android:id="@+id/edt_email"
+            android:id="@+id/edt_adress"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
@@ -37,7 +37,7 @@
             android:background="@drawable/bg_border_10"
             android:hint="Address"/>
         <EditText
-            android:id="@+id/edt_password"
+            android:id="@+id/edt_phonenumber"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="20dp"

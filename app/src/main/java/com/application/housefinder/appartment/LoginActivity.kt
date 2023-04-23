@@ -16,6 +16,8 @@ class LoginActivity : AppCompatActivity() {
         binding = ActivityLoginBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        dataReference.child("post")
+
         binding.tvSignIn.setOnClickListener {
             val txtAccount = binding.edtEmail.text.toString()
             val txtPassword = binding.edtPassword.text.toString()
@@ -45,6 +47,10 @@ class LoginActivity : AppCompatActivity() {
 
                 })
             }
+        }
+
+        binding.tvRegister.setOnClickListener {
+            startActivity(Intent(this@LoginActivity,RegisterActivity::class.java))
         }
     }
 }

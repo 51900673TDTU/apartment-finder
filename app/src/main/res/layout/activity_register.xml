@@ -31,7 +31,7 @@
             android:layout_centerVertical="true"/>
     </RelativeLayout>
 
-    <androidx.viewpager.widget.ViewPager
+    <com.application.housefinder.appartment.view.NonSwipeableViewPager
         android:id="@+id/vp"
         android:layout_width="match_parent"
         android:layout_height="match_parent"

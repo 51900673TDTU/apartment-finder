@@ -23,6 +23,7 @@ class MainActivity : AppCompatActivity() {
         binding.bottomBar.setOnItemSelectedListener {
             binding.viewPager.currentItem = it
         }
+        binding.viewPager.offscreenPageLimit = 3
     }
 
     class VpAdapter(fragmentManager: FragmentManager) : FragmentPagerAdapter(fragmentManager) {
