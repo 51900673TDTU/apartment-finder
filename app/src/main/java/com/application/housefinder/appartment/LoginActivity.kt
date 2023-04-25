@@ -26,6 +26,7 @@ class LoginActivity : AppCompatActivity() {
                     override fun onDataChange(snapshot: DataSnapshot) {
                         if (snapshot.hasChild(txtAccount)) {
                             if (snapshot.child(txtAccount).child("password").getValue(String::class.java).equals(txtPassword)) {
+                                Application.username = txtAccount
                                 startActivity(Intent(this@LoginActivity,MainActivity::class.java))
                                 finish()
 
