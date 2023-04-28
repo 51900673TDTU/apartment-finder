@@ -11,7 +11,7 @@ import com.application.housefinder.appartment.databinding.ItemPostBinding
 import com.application.housefinder.appartment.unit.Post
 import com.bumptech.glide.Glide
 
-class PostAdapter(var context: Context, var postList: ArrayList<Post>) :
+class PostAdapter(var context: Context, var postList: ArrayList<Post>, var postClickCallback: PostClickCallback) :
     RecyclerView.Adapter<PostAdapter.ViewHolder>() {
 
 
@@ -33,6 +33,9 @@ class PostAdapter(var context: Context, var postList: ArrayList<Post>) :
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         holder.itemBinding.tvTitle.text = postList[position].title
         holder.itemBinding.tvContent.text = postList[position].description
+        holder.itemBinding.root.setOnClickListener {
+            postClickCallback.onPostClick(position)
+        }
         if (postList[position].imgURLs.isNotEmpty()) {
             holder.itemBinding.rlImg.visibility = View.VISIBLE
             Glide.with(context).load(postList[position].imgURLs[0])

@@ -39,10 +39,23 @@ class FeedFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        binding.btnAdd.setOnClickListener {
+            startActivity(Intent(requireActivity(),NewPostActivity::class.java))
+        }
+
+    }
+
+    override fun onResume() {
+        super.onResume()
         dataReference.child("posts").addListenerForSingleValueEvent(object : ValueEventListener {
             override fun onDataChange(snapshot: DataSnapshot) {
                 collectPostData(snapshot.children)
-                postAdapter = PostAdapter(requireActivity(), postList)
+                postAdapter = PostAdapter(requireActivity(), postList, object : PostAdapter.PostClickCallback {
+                    override fun onPostClick(position: Int) {
+                        val sheet =  PostDetailBottomFragment(postList[position])
+                        sheet.show(requireActivity().supportFragmentManager,"post_fragment")
+                    }
+                })
                 binding.rcvData.layoutManager = LinearLayoutManager(requireActivity())
                 binding.rcvData.adapter = postAdapter
                 Handler().postDelayed({ binding.rcvData.hideShimmerAdapter() }, 2000)
@@ -60,11 +73,6 @@ class FeedFragment : Fragment() {
             }
 
         })
-
-        binding.btnAdd.setOnClickListener {
-            startActivity(Intent(requireActivity(),NewPostActivity::class.java))
-        }
-
     }
 
     private fun collectPostData(data: Iterable<DataSnapshot>) {
