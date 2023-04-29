@@ -40,7 +40,7 @@ class FeedFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         binding.btnAdd.setOnClickListener {
-            startActivity(Intent(requireActivity(),NewPostActivity::class.java))
+            startActivity(Intent(requireActivity(), NewPostActivity::class.java))
         }
 
     }
@@ -50,12 +50,15 @@ class FeedFragment : Fragment() {
         dataReference.child("posts").addListenerForSingleValueEvent(object : ValueEventListener {
             override fun onDataChange(snapshot: DataSnapshot) {
                 collectPostData(snapshot.children)
-                postAdapter = PostAdapter(requireActivity(), postList, object : PostAdapter.PostClickCallback {
-                    override fun onPostClick(position: Int) {
-                        val sheet =  PostDetailBottomFragment(postList[position])
-                        sheet.show(requireActivity().supportFragmentManager,"post_fragment")
-                    }
-                })
+                postAdapter = PostAdapter(
+                    requireActivity(),
+                    postList,
+                    object : PostAdapter.PostClickCallback {
+                        override fun onPostClick(position: Int) {
+                            val sheet = PostDetailBottomFragment(postList[position])
+                            sheet.show(requireActivity().supportFragmentManager, "post_fragment")
+                        }
+                    })
                 binding.rcvData.layoutManager = LinearLayoutManager(requireActivity())
                 binding.rcvData.adapter = postAdapter
                 Handler().postDelayed({ binding.rcvData.hideShimmerAdapter() }, 2000)
@@ -82,6 +85,10 @@ class FeedFragment : Fragment() {
             val owner = child.child("owner").getValue(String::class.java)!!
             val title = child.child("title").getValue(String::class.java)!!
             val content = child.child("content").getValue(String::class.java)!!
+            val price = child.child("price").getValue(Int::class.java)!!
+            val person = child.child("persons").getValue(Int::class.java)!!
+            val location = child.child("location").getValue(String::class.java)!!
+
             var dataImgList = ArrayList<String>()
             for (img in child.child("imgs").children) {
                 img.child("path").getValue(String::class.java)?.let {
@@ -89,7 +96,8 @@ class FeedFragment : Fragment() {
                 }
             }
 
-            val newPost = Post(id, owner, title, content, dataImgList.toList())
+            val newPost =
+                Post(id, owner, title, content, dataImgList.toList(), location, price, person)
             postList.add(newPost)
         }
         postList.reverse()

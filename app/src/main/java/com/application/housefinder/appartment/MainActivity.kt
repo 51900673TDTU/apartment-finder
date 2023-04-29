@@ -8,9 +8,7 @@ import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentPagerAdapter
 import androidx.viewpager.widget.ViewPager
 import com.application.housefinder.appartment.databinding.ActivityMainBinding
-import com.application.housefinder.appartment.fragment.AccountFragment
-import com.application.housefinder.appartment.fragment.FeedFragment
-import com.application.housefinder.appartment.fragment.InfoFragment
+import com.application.housefinder.appartment.fragment.*
 
 class MainActivity : AppCompatActivity() {
     lateinit var binding: ActivityMainBinding
@@ -33,7 +31,19 @@ class MainActivity : AppCompatActivity() {
 
         override fun getItem(position: Int): Fragment {
 
-            return FeedFragment()
+            return when(position) {
+                0 -> {
+                    FeedFragment()
+                }
+
+                2 -> {
+                    SettingFragment()
+                }
+
+                else -> {
+                    SearchFragment()
+                }
+            }
 
         }
 

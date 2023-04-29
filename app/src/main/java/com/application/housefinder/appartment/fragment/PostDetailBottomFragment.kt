@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.application.housefinder.appartment.Application
+import com.application.housefinder.appartment.R
 import com.application.housefinder.appartment.adapter.PostAdapter
 import com.application.housefinder.appartment.adapter.PostImageAdapter
 import com.application.housefinder.appartment.databinding.FragmentPostDetailBinding
@@ -65,11 +66,14 @@ class PostDetailBottomFragment(val post: Post) : BottomSheetDialogFragment() {
                         val id = postId.child("child_id").getValue(String::class.java)?.toLong()
                         if (id == post.id) {
                             fav = true
+                            binding.save.setImageResource(R.drawable.ic_baseline_bookmark_added_24)
                             binding.save.isEnabled = true
                             return
                         }
                     }
                     fav = false
+                    binding.save.setImageResource(R.drawable.ic_bookmark)
+
                     binding.save.isEnabled = true
 
                 }
@@ -77,6 +81,7 @@ class PostDetailBottomFragment(val post: Post) : BottomSheetDialogFragment() {
                 override fun onCancelled(error: DatabaseError) {
                     fav = false
                     binding.save.isEnabled = true
+                    binding.save.setImageResource(R.drawable.ic_bookmark)
 
                     error.toException().printStackTrace()
 
@@ -111,6 +116,8 @@ class PostDetailBottomFragment(val post: Post) : BottomSheetDialogFragment() {
             .child(postId)
             .child("child_id").setValue(post.id.toString()).addOnCompleteListener {
                 fav = true
+                binding.save.setImageResource(R.drawable.ic_baseline_bookmark_added_24)
+
             }
     }
 
@@ -126,6 +133,7 @@ class PostDetailBottomFragment(val post: Post) : BottomSheetDialogFragment() {
                     appleSnapshot.ref.removeValue()
                 }
                 fav = false
+                binding.save.setImageResource(R.drawable.ic_bookmark)
 
             }
 
