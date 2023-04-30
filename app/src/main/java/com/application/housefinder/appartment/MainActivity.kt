@@ -1,5 +1,6 @@
 package com.application.housefinder.appartment
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.ViewParent
@@ -22,6 +23,10 @@ class MainActivity : AppCompatActivity() {
             binding.viewPager.currentItem = it
         }
         binding.viewPager.offscreenPageLimit = 3
+
+        binding.icMessage.setOnClickListener {
+            startActivity(Intent(this@MainActivity,ChatActivity::class.java))
+        }
     }
 
     class VpAdapter(fragmentManager: FragmentManager) : FragmentPagerAdapter(fragmentManager) {

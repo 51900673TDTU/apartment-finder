@@ -1,11 +1,13 @@
 package com.application.housefinder.appartment.fragment
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.application.housefinder.appartment.Application
+import com.application.housefinder.appartment.InformationActivity
 import com.application.housefinder.appartment.R
 import com.application.housefinder.appartment.adapter.PostAdapter
 import com.application.housefinder.appartment.adapter.PostImageAdapter
@@ -44,6 +46,15 @@ class PostDetailBottomFragment(val post: Post) : BottomSheetDialogFragment() {
         binding.tvPrice.text = post.price.toString() + "$"
         binding.tvLocation.text = post.address
         binding.tvNumber.text = post.personNumber.toString()
+        binding.owner.text = post.owner + "'s post"
+
+        binding.owner.setOnClickListener {
+            startActivity(
+                Intent(requireActivity(), InformationActivity::class.java)
+                    .putExtra("fromPost", true)
+                    .putExtra("username", post.owner)
+            )
+        }
 
         imgAdapter = PostImageAdapter(
             requireActivity(),

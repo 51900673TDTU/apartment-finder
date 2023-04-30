@@ -33,6 +33,7 @@ class PostAdapter(var context: Context, var postList: ArrayList<Post>, var postC
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         holder.itemBinding.tvTitle.text = postList[position].title
         holder.itemBinding.tvContent.text = postList[position].description
+        holder.itemBinding.owner.text = postList[position].owner
         holder.itemBinding.root.setOnClickListener {
             postClickCallback.onPostClick(position)
         }

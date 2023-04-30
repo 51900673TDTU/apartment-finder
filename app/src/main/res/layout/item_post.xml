@@ -44,6 +44,18 @@
             android:text="Description"
             android:textSize="14sp" />
 
+        <TextView
+            android:id="@+id/owner"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Posted by Thanh"
+            android:layout_below="@id/tv_content"
+            android:layout_alignWithParentIfMissing="true"
+            android:layout_marginStart="10dp"
+            android:textColor="@color/black"
+            android:textStyle="italic"/>
+
+
         <RelativeLayout
             android:id="@+id/rl_img"
             android:layout_width="140dp"

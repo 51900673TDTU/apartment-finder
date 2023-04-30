@@ -13,6 +13,24 @@
         android:theme="@style/Theme.AppartmentFinder"
         tools:targetApi="31">
         <activity
+            android:name=".RoomChatActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ChatActivity"
+            android:exported="false" />
+        <activity
+            android:name=".AboutUsActivity"
+            android:exported="false" />
+        <activity
+            android:name=".EditInfoActivity"
+            android:exported="false" />
+        <activity
+            android:name=".InformationActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ChangePasswordActivity"
+            android:exported="false" />
+        <activity
             android:name=".MyPostActivity"
             android:exported="false" />
         <activity
