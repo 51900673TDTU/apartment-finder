@@ -43,7 +43,7 @@ class PostDetailBottomFragment(val post: Post) : BottomSheetDialogFragment() {
         super.onViewCreated(view, savedInstanceState)
         binding.tvTitle.text = post.title
         binding.tvContent.text = post.description
-        binding.tvPrice.text = post.price.toString() + "$"
+        binding.tvPrice.text = post.price.toString() + " VND"
         binding.tvLocation.text = post.address
         binding.tvNumber.text = post.personNumber.toString()
         binding.owner.text = post.owner + "'s post"

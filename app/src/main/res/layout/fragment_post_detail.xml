@@ -50,15 +50,33 @@
 
 
             <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Price (VND)"
+                android:textColor="@color/black"
+                android:textSize="12sp"
+                android:layout_marginHorizontal="10dp"
+                android:textStyle="italic"
+                android:layout_marginTop="10dp"/>
+            <TextView
                 android:id="@+id/tv_price"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="10dp"
                 android:paddingHorizontal="10dp"
-                android:hint="Price (Dollars)"
+                android:layout_marginTop="5dp"
+                android:hint="Price (VND)"
                 android:inputType="number"
                 android:paddingVertical="12dp" />
-
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Person number"
+                android:textColor="@color/black"
+                android:textSize="12sp"
+                android:layout_marginHorizontal="10dp"
+                android:textStyle="italic"
+                android:layout_marginTop="10dp"/>
             <TextView
                 android:id="@+id/tv_number"
                 android:layout_width="wrap_content"
@@ -70,6 +88,15 @@
                 android:paddingHorizontal="10dp"
                 android:paddingVertical="12dp" />
 
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Location"
+                android:textColor="@color/black"
+                android:textSize="12sp"
+                android:layout_marginHorizontal="10dp"
+                android:textStyle="italic"
+                android:layout_marginTop="10dp"/>
 
             <TextView
                 android:id="@+id/tv_location"
