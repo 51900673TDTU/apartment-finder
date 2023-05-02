@@ -2,6 +2,7 @@ package com.application.housefinder.appartment
 
 import android.app.AlertDialog
 import android.os.Bundle
+import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.application.housefinder.appartment.adapter.MessageAdapter
@@ -102,6 +103,7 @@ class RoomChatActivity : AppCompatActivity() {
                         if (!seen && owner != Application.username) {
                             dataReference.child("chatroom").child(room).child(date).child("seen")
                                 .setValue(true)
+                            Log.e("==logseen=", "onChildAdded: set seen"  )
                         }
 
                         val msg = Message(date.toLong(), owner, message, true)
@@ -133,34 +135,8 @@ class RoomChatActivity : AppCompatActivity() {
     }
 
 
-    private fun fetchMessage() {
-        dataReference.child("chatroom").addValueEventListener(object : ValueEventListener {
-            override fun onDataChange(snapshot: DataSnapshot) {
-                if (snapshot.hasChild(room)) {
-                    for (msgChild in snapshot.child(room).children) {
-                        val date = msgChild.ref.key!!
-                        val owner = msgChild.child("owner").getValue(String::class.java)!!
-                        val message = msgChild.child("message").getValue(String::class.java)!!
+    override fun onDestroy() {
+        super.onDestroy()
 
-                        val msg = Message(date.toLong(), owner, message, true)
-                        msgList.add(msg)
-                    }
-                    val newPosition = msgList.size - 1
-                    msgAdapter.notifyDataSetChanged()
-                    binding.rcvMsg.scrollToPosition(newPosition)
-                }
-            }
-
-            override fun onCancelled(error: DatabaseError) {
-                val alert = AlertDialog.Builder(this@RoomChatActivity)
-                alert.setTitle("Failed to get data")
-                alert.setMessage("Something went wrong (You may be check your connection) " + error.message)
-                alert.setNeutralButton(
-                    "Exit"
-                ) { _, _ -> finish() }
-                alert.create()
-            }
-
-        })
     }
 }

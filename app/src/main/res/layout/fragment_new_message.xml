@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <TextView
+        android:id="@+id/tv_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="New conservation"
+        android:layout_centerHorizontal="true"
+        android:textSize="18sp"
+        android:layout_marginTop="20dp"
+        android:textColor="@color/black"/>
+
+    <EditText
+        android:id="@+id/edt_username"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="20dp"
+        android:layout_below="@id/tv_title"
+        android:paddingHorizontal="12dp"
+        android:layout_marginTop="40dp"
+        android:paddingVertical="14dp"
+        android:background="@drawable/bg_border_10"
+        android:hint="Sent to (username)"/>
+
+    <EditText
+        android:id="@+id/edt_msg"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginHorizontal="20dp"
+        android:paddingHorizontal="12dp"
+        android:gravity="top
+"
+        android:layout_below="@id/edt_username"
+        android:paddingVertical="14dp"
+        android:background="@drawable/bg_border_10"
+        android:hint="Message"/>
+
+    <TextView
+        android:id="@+id/send"
+        android:text="Send"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="18sp"
+        android:layout_below="@id/edt_msg"
+        android:layout_centerHorizontal="true"
+        android:layout_margin="10dp"
+        android:paddingHorizontal="40dp"
+        android:paddingVertical="12dp"
+        android:background="@drawable/bg_next"
+        android:textColor="@color/white"/>
+
+
+</RelativeLayout>

@@ -19,6 +19,6 @@ class AboutUsActivity : AppCompatActivity() {
         }
 
         binding.webview.settings.javaScriptEnabled = true
-        binding.webview.loadUrl ("https://www.youtube.com/watch?v=pR06brbzXoA")
+        binding.webview.loadUrl ("https://google.com")
     }
 }

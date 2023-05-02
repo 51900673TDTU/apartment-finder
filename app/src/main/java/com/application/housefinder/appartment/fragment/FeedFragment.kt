@@ -79,6 +79,7 @@ class FeedFragment : Fragment() {
     }
 
     private fun collectPostData(data: Iterable<DataSnapshot>) {
+        postList.clear()
         for (child in data) {
 
             var id = child.child("id").getValue(String::class.java)?.toLong()!!

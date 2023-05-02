@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
+import com.application.housefinder.appartment.LoginActivity
 import com.application.housefinder.appartment.RegisterActivity
 import com.application.housefinder.appartment.databinding.FragmentAccountBinding
 import com.google.firebase.database.DataSnapshot
@@ -43,6 +44,11 @@ class AccountFragment(var parent : RegisterActivity) : Fragment(){
 
             if (!EmailValidator.getInstance().isValid(txtEmail)) {
                 Toast.makeText(parent,"Invalid Email Format",Toast.LENGTH_SHORT).show()
+                return@setOnClickListener
+            }
+
+            if (!LoginActivity.checkValidUsername(txtUserName)) {
+                Toast.makeText(parent,"username must not contain '.', '#', '\$', '[', or ']'",Toast.LENGTH_SHORT).show()
                 return@setOnClickListener
             }
 

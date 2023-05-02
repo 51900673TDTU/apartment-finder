@@ -8,6 +8,8 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.application.housefinder.appartment.adapter.PostAdapter
 import com.application.housefinder.appartment.adapter.RoomChatAdapter
 import com.application.housefinder.appartment.databinding.ActivityChatBinding
+import com.application.housefinder.appartment.fragment.NewMessageFragment
+import com.application.housefinder.appartment.fragment.PostDetailBottomFragment
 import com.application.housefinder.appartment.unit.Message
 import com.application.housefinder.appartment.unit.RoomChat
 import com.google.firebase.database.ChildEventListener
@@ -51,6 +53,11 @@ class ChatActivity : AppCompatActivity() {
         binding.rcvMessage.layoutManager = LinearLayoutManager(this)
         binding.rcvMessage.adapter = msgAdapter
 
+        binding.btnChat.setOnClickListener {
+            val sheet = NewMessageFragment()
+            sheet.show(supportFragmentManager, "chat_fragment")
+        }
+
     }
 
     override fun onResume() {
@@ -85,6 +92,7 @@ class ChatActivity : AppCompatActivity() {
                         roomList.add(newRoom)
                     }
                 }
+                roomList.reverse()
                 msgAdapter.notifyDataSetChanged()
             }
 

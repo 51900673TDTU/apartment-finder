@@ -2,6 +2,7 @@ package com.application.housefinder.appartment.fragment
 
 import android.content.Intent
 import android.os.Bundle
+import android.preference.PreferenceManager
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -41,6 +42,11 @@ class SettingFragment : Fragment() {
 
         binding.tvLogOut.setOnClickListener {
             Application.username = ""
+
+            val prefs = PreferenceManager.getDefaultSharedPreferences(requireActivity())
+            prefs.edit().putString("username","").apply()
+            prefs.edit().putString("password","").apply()
+
             startActivity(
                 Intent(
                     requireActivity(),

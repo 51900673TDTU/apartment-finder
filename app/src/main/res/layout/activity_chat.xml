@@ -27,6 +27,33 @@
             android:layout_toEndOf="@id/ic_back"
             android:layout_marginStart="15dp"/>
 
+        <LinearLayout
+            android:id="@+id/btn_chat"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_alignParentEnd="true"
+            android:paddingVertical="6dp"
+            android:paddingHorizontal="12dp"
+            android:background="@drawable/bg_border_10"
+            android:layout_marginEnd="20dp"
+            android:orientation="horizontal"
+            android:gravity="center_vertical">
+            <ImageView
+                android:layout_width="18dp"
+                android:layout_height="18dp"
+                android:src="@drawable/baseline_message_24" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="New message"
+                android:fontFamily="@font/op_r"
+                android:layout_marginStart="5dp"
+                android:textColor="@color/black"
+                android:textSize="16sp"/>
+        </LinearLayout>
+
     </RelativeLayout>
 
     <androidx.recyclerview.widget.RecyclerView
