@@ -38,20 +38,31 @@ class SearchFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        postAdapter = PostAdapter(requireActivity(), postList, object : PostAdapter.PostClickCallback {
-            override fun onPostClick(position: Int) {
-                val sheet = PostDetailBottomFragment(postList[position])
-                sheet.show(requireActivity().supportFragmentManager, "post_fragment")
-            }
-        })
+        postAdapter =
+            PostAdapter(requireActivity(), postList, object : PostAdapter.PostClickCallback {
+                override fun onPostClick(position: Int) {
+                    val sheet = PostDetailBottomFragment(postList[position])
+                    sheet.show(requireActivity().supportFragmentManager, "post_fragment")
+                }
+            })
 
         binding.rcvPost.layoutManager = LinearLayoutManager(requireActivity())
         binding.rcvPost.adapter = postAdapter
 
+        binding.cbPrice.setOnCheckedChangeListener { _, isChecked ->
+            if (isChecked) {
+                binding.doubleRangeSeekbar.isEnabled = false
+                binding.doubleRangeSeekbar.alpha = 0.4f
+            } else {
+                binding.doubleRangeSeekbar.isEnabled = true
+                binding.doubleRangeSeekbar.alpha = 1f
+
+            }
+        }
+
         binding.btnSearch.setOnClickListener {
             postList.clear()
             val txtWord = binding.edtSearch.text.toString()
-            val txtPrice = binding.edtPrice.text.toString()
             val txtLocation = binding.edtLocation.text.toString()
             val txtPerson = binding.edtNumber.text.toString()
 
@@ -69,13 +80,17 @@ class SearchFragment : Fragment() {
 
                         val containsWord =
                             if (txtWord.isEmpty()) true else (
-                                    owner.contains(txtWord) || title.contains(txtWord) || content.contains(txtWord))
+                                    owner.contains(txtWord) || title.contains(txtWord) || content.contains(
+                                        txtWord
+                                    ))
                         val matchPerson =
                             if (txtPerson.isEmpty()) true else
                                 person == txtPerson.toInt()
+
                         val matchPrice =
-                            if (txtPrice.isEmpty()) true else
-                                (price <= txtPrice.toInt())
+                            if (binding.cbPrice.isChecked) true else
+                            price >= binding.doubleRangeSeekbar.currentMinValue * 1000000
+                                    && price <= binding.doubleRangeSeekbar.currentMaxValue * 1000000
                         val matchLocation =
                             if (txtLocation.isEmpty()) true else
                                 location.contains(txtLocation)
@@ -90,7 +105,16 @@ class SearchFragment : Fragment() {
                                 }
                             }
 
-                            val newPost = Post(id, owner, title, content, dataImgList.toList(),location,price,person)
+                            val newPost = Post(
+                                id,
+                                owner,
+                                title,
+                                content,
+                                dataImgList.toList(),
+                                location,
+                                price,
+                                person
+                            )
                             postList.add(newPost)
                         }
 
